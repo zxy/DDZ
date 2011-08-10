@@ -1,166 +1,166 @@
-//·µ»ØÓÃ»§µÇÂ¼³É¹¦ºó
-//Web¶ËJS¿ªÊ¼µ÷ÓÃinitFalshObject()À´³õÊ¼»¯flash Object
-//¼ÓÔØApplication_Main_ContainerÈİÆ÷
-//Æô¶¯Applcation_SatrtEventHandler¿ªÊ¼¼ÓÔØÏµÍ³ÅäÖÃ
+ï»¿//è¿”å›ç”¨æˆ·ç™»å½•æˆåŠŸå
+//Webç«¯JSå¼€å§‹è°ƒç”¨initFalshObject()æ¥åˆå§‹åŒ–flash Object
+//åŠ è½½Application_Main_Containerå®¹å™¨
+//å¯åŠ¨Applcation_SatrtEventHandlerå¼€å§‹åŠ è½½ç³»ç»Ÿé…ç½®
 Application_StartEventHandler:void
 {
     
-    //¼ÓÔØÏµÍ³ÅäÖÃ,´ÓappConfig.xmlÎÄ¼şÖĞ³õÊ¼»¯ËùÓĞÏµÍ³²ÎÊı£¬Ö»ÔËĞĞÒ»´Î
-    //²¢ÇÒ½«ËùÓĞÏµÍ³²ÎÊı´æ´¢ÓÚapplicationµÄÄÚ´æÖĞ
+    //åŠ è½½ç³»ç»Ÿé…ç½®,ä»appConfig.xmlæ–‡ä»¶ä¸­åˆå§‹åŒ–æ‰€æœ‰ç³»ç»Ÿå‚æ•°ï¼Œåªè¿è¡Œä¸€æ¬¡
+    //å¹¶ä¸”å°†æ‰€æœ‰ç³»ç»Ÿå‚æ•°å­˜å‚¨äºapplicationçš„å†…å­˜ä¸­
     function initAppConfigEnviroment():void
     
-    //µ÷ÓÃSendReq(ServerURL,userId)»ñµÃÓÃ»§ĞÅÏ¢,²¢ÇÒ´æ´¢ÓÚuser¶ÔÏóÖĞ
+    //è°ƒç”¨SendReq(ServerURL,userId)è·å¾—ç”¨æˆ·ä¿¡æ¯,å¹¶ä¸”å­˜å‚¨äºuserå¯¹è±¡ä¸­
     function getUserInfo():User
 
-    //¼ÓÔØpre_load¶¯»­(±ÈÈç½ø¶ÈÌõ)
-    //¼ÓÔØÍê³ÉÖ´ĞĞpreLoadEnd_EventCallbackHandler»Øµ÷º¯Êı
+    //åŠ è½½pre_loadåŠ¨ç”»(æ¯”å¦‚è¿›åº¦æ¡)
+    //åŠ è½½å®Œæˆæ‰§è¡ŒpreLoadEnd_EventCallbackHandlerå›è°ƒå‡½æ•°
     function showPreLoadAnimation(preLoadEnd_EventCallbackHandler):void
 
-    //preload¼ÓÔØÍê³Éºó£¬ÉèÖÃpreLoadComplete±êÖ¾Î»Îªtrue£¬¿ªÊ¼³õÊ¼»¯Main_ContainerÀïµÄËùÓĞ×ÓÈİÆ÷
+    //preloadåŠ è½½å®Œæˆåï¼Œè®¾ç½®preLoadCompleteæ ‡å¿—ä½ä¸ºtrueï¼Œå¼€å§‹åˆå§‹åŒ–Main_Containeré‡Œçš„æ‰€æœ‰å­å®¹å™¨
     function preLoadEnd_EventCallbackHandler():bool
 }
 
-//MainMenuContainer£¨Ö÷²Ëµ¥ÈİÆ÷£©£¬Application_Main_ContainerµÄ×ÓÈİÆ÷
+//MainMenuContainerï¼ˆä¸»èœå•å®¹å™¨ï¼‰ï¼ŒApplication_Main_Containerçš„å­å®¹å™¨
 MainMenuContainer_LoadEventHandler:extend Application_Main_Container
 {
-     //¼ÓÔØÖ÷²Ëµ¥Ñ¡Ïî(Ö÷²Ëµ¥ÎÄ×ÖÄÚÈİ£¬ÑùÊ½)
+     //åŠ è½½ä¸»èœå•é€‰é¡¹(ä¸»èœå•æ–‡å­—å†…å®¹ï¼Œæ ·å¼)
      function initMainMenuItem():void
      
-     //Ö÷²Ëµ¥Ñ¡ÏîÊó±êĞüÍ£ÊÂ¼ş
+     //ä¸»èœå•é€‰é¡¹é¼ æ ‡æ‚¬åœäº‹ä»¶
      function MainMenuItem_onMouseOverEventHandler():void
 
-    //Ö÷²Ëµ¥Ñ¡ÏîÀë¿ªĞüÍ£ÊÂ¼ş
+    //ä¸»èœå•é€‰é¡¹ç¦»å¼€æ‚¬åœäº‹ä»¶
      function MainMenuItem_onMouseOutEventHandler():void
      
-     //Ö÷²Ëµ¥Ñ¡Ïîµã»÷ÊÂ¼ş 
-     //µ±Ç°²Ëµ¥»­Ãæ²»¿Éµã»÷£¬Õ½¶·½çÃæÖĞÒş²ØÖ÷²Ëµ¥¡£
-     //µã»÷Ö÷²Ëµ¥Ñ¡Ïî½«µ÷ÓÃNavigatorÀàÀ´ÊµÏÖµ¼º½Ö÷²Ëµ¥ÏÂÃæµÄ×ÓÈİÆ÷µÄ¿ªÆôÓë¹Ø±Õ
+     //ä¸»èœå•é€‰é¡¹ç‚¹å‡»äº‹ä»¶ 
+     //å½“å‰èœå•ç”»é¢ä¸å¯ç‚¹å‡»ï¼Œæˆ˜æ–—ç•Œé¢ä¸­éšè—ä¸»èœå•ã€‚
+     //ç‚¹å‡»ä¸»èœå•é€‰é¡¹å°†è°ƒç”¨Navigatorç±»æ¥å®ç°å¯¼èˆªä¸»èœå•ä¸‹é¢çš„å­å®¹å™¨çš„å¼€å¯ä¸å…³é—­
      function MainMenuItem_onClickEventHandler():void
 }
 
-//DeckContainer£¨ÅÆ×éÈİÆ÷£©£¬Application_Main_ContainerµÄ×ÓÈİÆ÷
+//DeckContainerï¼ˆç‰Œç»„å®¹å™¨ï¼‰ï¼ŒApplication_Main_Containerçš„å­å®¹å™¨
 DeckContainer_LoadEventHandler:extend Application_Main_Container
 {
-    //¼ÓÔØÓÃ»§ÅÆ×éÁĞ±í
+    //åŠ è½½ç”¨æˆ·ç‰Œç»„åˆ—è¡¨
     function initCardDeckItems():void
     {
-     //Ä¬ÈÏÓĞÒ»¸ö³õÊ¼ÅÆ×é´æÔÚ ²¢ÓĞËÄÕÅ³õÊ¼ÅÆ
+     //é»˜è®¤æœ‰ä¸€ä¸ªåˆå§‹ç‰Œç»„å­˜åœ¨ å¹¶æœ‰å››å¼ åˆå§‹ç‰Œ
      initCardDeckTiem      
-    //µÈÓÃ»§µÈ¼¶Éı¼¶ ÓĞÈ¨ÏŞ´´½¨ĞÂµÄÅÆ×é
+    //ç­‰ç”¨æˆ·ç­‰çº§å‡çº§ æœ‰æƒé™åˆ›å»ºæ–°çš„ç‰Œç»„
      if(user  have upgrade)  
      {
-            //ÌáÊ¾ÓÃ»§´´½¨ÅÆ×é 
+            //æç¤ºç”¨æˆ·åˆ›å»ºç‰Œç»„ 
             showCreateNewCardDeckItems();        
        }
        else
        {
-            //ÏÔÊ¾ÓÃ»§µ±Ç°ÅÆ×é
+            //æ˜¾ç¤ºç”¨æˆ·å½“å‰ç‰Œç»„
             showCurrentCardDeckItems();
        }
     }
 
-    //ÏÔÊ¾ÓÃ»§µ±Ç°ÅÆ×é
-    //µ÷ÓÃSendReq(ServerURL,userId)»ñµÃÓÃ»§ÅÆ×éĞÅÏ¢,²¢ÇÒ´æ´¢ÓÚdeck¶ÔÏóÖĞ
-    //Ö®ºó´´½¨Ã¿¸öDeckµÄDeckItemContainer
+    //æ˜¾ç¤ºç”¨æˆ·å½“å‰ç‰Œç»„
+    //è°ƒç”¨SendReq(ServerURL,userId)è·å¾—ç”¨æˆ·ç‰Œç»„ä¿¡æ¯,å¹¶ä¸”å­˜å‚¨äºdeckå¯¹è±¡ä¸­
+    //ä¹‹ååˆ›å»ºæ¯ä¸ªDeckçš„DeckItemContainer
     function showCurrentCardDeckItems():void
 
-    //µã»÷ÏàÓ¦µÄÅÆ×é½øÈëÅÆ×éÅäÖÃ½çÃæ
+    //ç‚¹å‡»ç›¸åº”çš„ç‰Œç»„è¿›å…¥ç‰Œç»„é…ç½®ç•Œé¢
     function deckItemContainer_onClickEventHandler():void
 }
 
-DeckItemDetailContainer£¨ÅÆ×éÏêÏ¸ÈİÆ÷£©, DeckContainerµÄ×ÓÈİÆ÷
+DeckItemDetailContainerï¼ˆç‰Œç»„è¯¦ç»†å®¹å™¨ï¼‰, DeckContainerçš„å­å®¹å™¨
 DeckItemDetailContainer_LoadEventHandler:extend DeckContainer
 {
-     //µ÷ÓÃSendReq(ServerURL,cardId)»ñµÃÓÃ»§µÄ¿¨ĞÅÏ¢,
-    //´æ´¢ÓÚCard¶ÔÏóÖĞ
+     //è°ƒç”¨SendReq(ServerURL,cardId)è·å¾—ç”¨æˆ·çš„å¡ä¿¡æ¯,
+    //å­˜å‚¨äºCardå¯¹è±¡ä¸­
     function getCardInfo():Card
 
-    //CardContainerµÄµã»÷ÊÂ¼ş
+    //CardContainerçš„ç‚¹å‡»äº‹ä»¶
     function CardContainer_onClickEventHandler(cardId:string):void
     {
          if(CardIsInBackUp())
          {
-             //³öÅÆ,SendReq(ServerURL,UserId,CardId)
-             //ÏòÅÆ¶ÑÌí¼ÓÅÆ
+             //å‡ºç‰Œ,SendReq(ServerURL,UserId,CardId)
+             //å‘ç‰Œå †æ·»åŠ ç‰Œ
              function sendCardToDeck():void
          }
          else
          {
-             //³öÅÆ,SendReq(ServerURL,UserId,CardId)
-            //ÏòÅÆ¶ÑmoveÅÆ
+             //å‡ºç‰Œ,SendReq(ServerURL,UserId,CardId)
+            //å‘ç‰Œå †moveç‰Œ
             function sendCardToBackUp():void
          }
     }
 }
 
 
-//BattleConatiner ( Õ½¶·ÈİÆ÷ )£¬Application_Main_ContainerµÄ×ÓÈİÆ÷
+//BattleConatiner ( æˆ˜æ–—å®¹å™¨ )ï¼ŒApplication_Main_Containerçš„å­å®¹å™¨
 BattleConatiner_LoadEventHander:extend Application_Main_Container
 {
-    //¿ªÊ¼°´Å¥µã»÷ÊÂ¼ş£¬ÓÃ»§µã»÷¿ªÊ¼°´Å¥ºó¿ªÊ¼ÓÎÏ·
+    //å¼€å§‹æŒ‰é’®ç‚¹å‡»äº‹ä»¶ï¼Œç”¨æˆ·ç‚¹å‡»å¼€å§‹æŒ‰é’®åå¼€å§‹æ¸¸æˆ
     function startBattleButton_onClickEventHandler():void  
     
-    //»ØºÏ½áÊø°´Å¥µã»÷ÊÂ¼ş£¬ÓÃ»§µã»÷ºó½áÊøµ±Ç°»ØºÏ
+    //å›åˆç»“æŸæŒ‰é’®ç‚¹å‡»äº‹ä»¶ï¼Œç”¨æˆ·ç‚¹å‡»åç»“æŸå½“å‰å›åˆ
     function endTurnButton_onClickEventHandler():void 
   
-    //µ÷ÓÃSendReq(ServerURL,userId)»ñµÃÓÃ»§ĞÅÏ¢,²¢ÇÒ´æ´¢ÓÚuser¶ÔÏóÖĞ
+    //è°ƒç”¨SendReq(ServerURL,userId)è·å¾—ç”¨æˆ·ä¿¡æ¯,å¹¶ä¸”å­˜å‚¨äºuserå¯¹è±¡ä¸­
     function getUserInfo():User
  
-    //½«ÓÃ»§µÄĞÅÏ¢ÏÔÊ¾ÔÚÓÃ»§ĞÅÏ¢ÈİÆ÷ÖĞ
+    //å°†ç”¨æˆ·çš„ä¿¡æ¯æ˜¾ç¤ºåœ¨ç”¨æˆ·ä¿¡æ¯å®¹å™¨ä¸­
     function userInfoContainer_loadEventHandler():void
    
-    //µ÷ÓÃSendReq(ServerURL,userId,deckId)»ñµÃÓÃ»§µÄÅÆ×éĞÅÏ¢,
-    //·şÎñ¶Ë·µ»ØÓÃ»§ÒÑ¾­Ï´ºÃµÄÅÆ×éĞòÁĞ
+    //è°ƒç”¨SendReq(ServerURL,userId,deckId)è·å¾—ç”¨æˆ·çš„ç‰Œç»„ä¿¡æ¯,
+    //æœåŠ¡ç«¯è¿”å›ç”¨æˆ·å·²ç»æ´—å¥½çš„ç‰Œç»„åºåˆ—
     function getUserCardDeck():Array[Card]
    
-    //ÊÖÅÆÈİÆ÷×´Ì¬³õÊ¼»¯£¬¸øÓÃ»§ÅÉ·¢ÏàÓ¦ÊıÁ¿µÄÊÖÅÆ
-    //BattleConatiner µÄ×ÓÈİÆ÷
+    //æ‰‹ç‰Œå®¹å™¨çŠ¶æ€åˆå§‹åŒ–ï¼Œç»™ç”¨æˆ·æ´¾å‘ç›¸åº”æ•°é‡çš„æ‰‹ç‰Œ
+    //BattleConatiner çš„å­å®¹å™¨
     function handCard_Container_loadEventHandler():extend BattleConatiner 
 
-    //Õ½³¡ÈİÆ÷³õÊ¼»¯£¬ÉèÖÃÏàÓ¦µÄÕ½³¡
-    //BattleConatiner µÄ×ÓÈİÆ÷
+    //æˆ˜åœºå®¹å™¨åˆå§‹åŒ–ï¼Œè®¾ç½®ç›¸åº”çš„æˆ˜åœº
+    //BattleConatiner çš„å­å®¹å™¨
     function BallteField_Container_loadEventHandler():extend BattleConatiner 
     
-    //Õ½¶·²Ëµ¥³õÊ¼»¯£¬ÉèÖÃÓÎÏ·µÄÕ½¶·²Ëµ¥
-    //BattleConatiner µÄ×ÓÈİÆ÷
+    //æˆ˜æ–—èœå•åˆå§‹åŒ–ï¼Œè®¾ç½®æ¸¸æˆçš„æˆ˜æ–—èœå•
+    //BattleConatiner çš„å­å®¹å™¨
     function BattleMenu_Container_loadEventHandler():extend BattleContainer
     
-    //²Ëµ¥Ñ¡ÏîµÄµã»÷ÊÂ¼ş£¬SendReq(ServerURL,option),½«Ñ¡ÔñÏîÄ¿·¢ËÍ¸ø·şÎñ¶Ë
-    //·şÎñ¶ËÏìÓ¦ºó£¬¿Í»§¶Ë¸ù¾İÏìÓ¦ÄÚÈİ±ä»¯ 
+    //èœå•é€‰é¡¹çš„ç‚¹å‡»äº‹ä»¶ï¼ŒSendReq(ServerURL,option),å°†é€‰æ‹©é¡¹ç›®å‘é€ç»™æœåŠ¡ç«¯
+    //æœåŠ¡ç«¯å“åº”åï¼Œå®¢æˆ·ç«¯æ ¹æ®å“åº”å†…å®¹å˜åŒ– 
     function BattleMenu_item_onClickEventHandler():void     
 
-    //µ÷ÓÃSendReq(ServerURL,cardId)»ñµÃÓÃ»§µÄ¿¨ĞÅÏ¢,
-    //´æ´¢ÓÚCard¶ÔÏóÖĞ
+    //è°ƒç”¨SendReq(ServerURL,cardId)è·å¾—ç”¨æˆ·çš„å¡ä¿¡æ¯,
+    //å­˜å‚¨äºCardå¯¹è±¡ä¸­
     function getCardInfo():Card
     
-    //¼ÓÔØ¿¨ÅÆĞÅÏ¢µ½ÏàÓ¦µÄCardContainerÖĞ
+    //åŠ è½½å¡ç‰Œä¿¡æ¯åˆ°ç›¸åº”çš„CardContainerä¸­
     function CardContainer_loadEventHandler(cardId:string):void
 
-    //CardContainerµÄµã»÷ÊÂ¼ş
+    //CardContainerçš„ç‚¹å‡»äº‹ä»¶
     function CardContainer_onClickEventHandler(cardId:string):void
     {
          if(CardIsInHand())
          {
-             //³öÅÆ,SendReq(ServerURL,UserId,CardId)
-             //Server¶Ë·µ»Ø³É¹¦ºó£¬¾Í³öÅÆ
+             //å‡ºç‰Œ,SendReq(ServerURL,UserId,CardId)
+             //Serverç«¯è¿”å›æˆåŠŸåï¼Œå°±å‡ºç‰Œ
              function sendCardToBattle():void
          }
          else if(CardIsInBattle)
          {
-            //Ñ¡Ôñ¶¯×÷£¬endReq(ServerURL,UserId,CardId)
-             //Server¶Ë·µ»Ø³É¹¦ºó£¬¾ÍÖ´ĞĞÏàÓ¦µÄ¶¯×÷
+            //é€‰æ‹©åŠ¨ä½œï¼ŒendReq(ServerURL,UserId,CardId)
+             //Serverç«¯è¿”å›æˆåŠŸåï¼Œå°±æ‰§è¡Œç›¸åº”çš„åŠ¨ä½œ
             function chooseAction()
          }
     }
 
-    //¿¨Æ¬µÄÊó±êĞüÍ£ÊÂ¼ş£¬µ±Êó±êĞüÍ£ÔÚÄ³ÕÅ¿¨ÅÆÉÏÊ±£¬µ¯³ö²ãÏÔÊ¾¿¨ÅÆµÄÏêÏ¸ĞÅÏ¢
+    //å¡ç‰‡çš„é¼ æ ‡æ‚¬åœäº‹ä»¶ï¼Œå½“é¼ æ ‡æ‚¬åœåœ¨æŸå¼ å¡ç‰Œä¸Šæ—¶ï¼Œå¼¹å‡ºå±‚æ˜¾ç¤ºå¡ç‰Œçš„è¯¦ç»†ä¿¡æ¯
     function CardContainer_onMouseOverEventHandler(cardId):Card
 
-    //Èç¹û¿¨ÅÆÒÑ¾­Ê¹ÓÃ¹ıÁË£¬»òÕßÃ»ÓĞÉúÃüÖµÁË£¬¾Í»ØÊÕ¸ÄÈİÆ÷
-    //µ÷ÓÃSendReq(ServerURL,cardId)£¬·µ»Ø²Ù×÷½á¹û
+    //å¦‚æœå¡ç‰Œå·²ç»ä½¿ç”¨è¿‡äº†ï¼Œæˆ–è€…æ²¡æœ‰ç”Ÿå‘½å€¼äº†ï¼Œå°±å›æ”¶æ”¹å®¹å™¨
+    //è°ƒç”¨SendReq(ServerURL,cardId)ï¼Œè¿”å›æ“ä½œç»“æœ
     function CardContainer_Dispose():void
     
-    //¼àÌı·şÎñ¶Ë·¢ËÍµÄÊÂ¼ş£¬°üÀ¨¿Û³ıÉúÃüÖµ£¬»ØÊÕ¿¨ÅÆµÈµÈ
+    //ç›‘å¬æœåŠ¡ç«¯å‘é€çš„äº‹ä»¶ï¼ŒåŒ…æ‹¬æ‰£é™¤ç”Ÿå‘½å€¼ï¼Œå›æ”¶å¡ç‰Œç­‰ç­‰
     function battleEventListener():void
 
 }

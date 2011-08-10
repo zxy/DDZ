@@ -1,0 +1,166 @@
+//返回用户登录成功后
+//Web端JS开始调用initFalshObject()来初始化flash Object
+//加载Application_Main_Container容器
+//启动Applcation_SatrtEventHandler开始加载系统配置
+Application_StartEventHandler:void
+{
+    
+    //加载系统配置,从appConfig.xml文件中初始化所有系统参数，只运行一次
+    //并且将所有系统参数存储于application的内存中
+    function initAppConfigEnviroment():void
+    
+    //调用SendReq(ServerURL,userId)获得用户信息,并且存储于user对象中
+    function getUserInfo():User
+
+    //加载pre_load动画(比如进度条)
+    //加载完成执行preLoadEnd_EventCallbackHandler回调函数
+    function showPreLoadAnimation(preLoadEnd_EventCallbackHandler):void
+
+    //preload加载完成后，设置preLoadComplete标志位为true，开始初始化Main_Container里的所有子容器
+    function preLoadEnd_EventCallbackHandler():bool
+}
+
+//MainMenuContainer（主菜单容器），Application_Main_Container的子容器
+MainMenuContainer_LoadEventHandler:extend Application_Main_Container
+{
+     //加载主菜单选项(主菜单文字内容，样式)
+     function initMainMenuItem():void
+     
+     //主菜单选项鼠标悬停事件
+     function MainMenuItem_onMouseOverEventHandler():void
+
+    //主菜单选项离开悬停事件
+     function MainMenuItem_onMouseOutEventHandler():void
+     
+     //主菜单选项点击事件 
+     //当前菜单画面不可点击，战斗界面中隐藏主菜单。
+     //点击主菜单选项将调用Navigator类来实现导航主菜单下面的子容器的开启与关闭
+     function MainMenuItem_onClickEventHandler():void
+}
+
+//DeckContainer（牌组容器），Application_Main_Container的子容器
+DeckContainer_LoadEventHandler:extend Application_Main_Container
+{
+    //加载用户牌组列表
+    function initCardDeckItems():void
+    {
+     //默认有一个初始牌组存在 并有四张初始牌
+     initCardDeckTiem      
+    //等用户等级升级 有权限创建新的牌组
+     if(user  have upgrade)  
+     {
+            //提示用户创建牌组 
+            showCreateNewCardDeckItems();        
+       }
+       else
+       {
+            //显示用户当前牌组
+            showCurrentCardDeckItems();
+       }
+    }
+
+    //显示用户当前牌组
+    //调用SendReq(ServerURL,userId)获得用户牌组信息,并且存储于deck对象中
+    //之后创建每个Deck的DeckItemContainer
+    function showCurrentCardDeckItems():void
+
+    //点击相应的牌组进入牌组配置界面
+    function deckItemContainer_onClickEventHandler():void
+}
+
+DeckItemDetailContainer（牌组详细容器）, DeckContainer的子容器
+DeckItemDetailContainer_LoadEventHandler:extend DeckContainer
+{
+     //调用SendReq(ServerURL,cardId)获得用户的卡信息,
+    //存储于Card对象中
+    function getCardInfo():Card
+
+    //CardContainer的点击事件
+    function CardContainer_onClickEventHandler(cardId:string):void
+    {
+         if(CardIsInBackUp())
+         {
+             //出牌,SendReq(ServerURL,UserId,CardId)
+             //向牌堆添加牌
+             function sendCardToDeck():void
+         }
+         else
+         {
+             //出牌,SendReq(ServerURL,UserId,CardId)
+            //向牌堆move牌
+            function sendCardToBackUp():void
+         }
+    }
+}
+
+
+//BattleConatiner ( 战斗容器 )，Application_Main_Container的子容器
+BattleConatiner_LoadEventHander:extend Application_Main_Container
+{
+    //开始按钮点击事件，用户点击开始按钮后开始游戏
+    function startBattleButton_onClickEventHandler():void  
+    
+    //回合结束按钮点击事件，用户点击后结束当前回合
+    function endTurnButton_onClickEventHandler():void 
+  
+    //调用SendReq(ServerURL,userId)获得用户信息,并且存储于user对象中
+    function getUserInfo():User
+ 
+    //将用户的信息显示在用户信息容器中
+    function userInfoContainer_loadEventHandler():void
+   
+    //调用SendReq(ServerURL,userId,deckId)获得用户的牌组信息,
+    //服务端返回用户已经洗好的牌组序列
+    function getUserCardDeck():Array[Card]
+   
+    //手牌容器状态初始化，给用户派发相应数量的手牌
+    //BattleConatiner 的子容器
+    function handCard_Container_loadEventHandler():extend BattleConatiner 
+
+    //战场容器初始化，设置相应的战场
+    //BattleConatiner 的子容器
+    function BallteField_Container_loadEventHandler():extend BattleConatiner 
+    
+    //战斗菜单初始化，设置游戏的战斗菜单
+    //BattleConatiner 的子容器
+    function BattleMenu_Container_loadEventHandler():extend BattleContainer
+    
+    //菜单选项的点击事件，SendReq(ServerURL,option),将选择项目发送给服务端
+    //服务端响应后，客户端根据响应内容变化 
+    function BattleMenu_item_onClickEventHandler():void     
+
+    //调用SendReq(ServerURL,cardId)获得用户的卡信息,
+    //存储于Card对象中
+    function getCardInfo():Card
+    
+    //加载卡牌信息到相应的CardContainer中
+    function CardContainer_loadEventHandler(cardId:string):void
+
+    //CardContainer的点击事件
+    function CardContainer_onClickEventHandler(cardId:string):void
+    {
+         if(CardIsInHand())
+         {
+             //出牌,SendReq(ServerURL,UserId,CardId)
+             //Server端返回成功后，就出牌
+             function sendCardToBattle():void
+         }
+         else if(CardIsInBattle)
+         {
+            //选择动作，endReq(ServerURL,UserId,CardId)
+             //Server端返回成功后，就执行相应的动作
+            function chooseAction()
+         }
+    }
+
+    //卡片的鼠标悬停事件，当鼠标悬停在某张卡牌上时，弹出层显示卡牌的详细信息
+    function CardContainer_onMouseOverEventHandler(cardId):Card
+
+    //如果卡牌已经使用过了，或者没有生命值了，就回收改容器
+    //调用SendReq(ServerURL,cardId)，返回操作结果
+    function CardContainer_Dispose():void
+    
+    //监听服务端发送的事件，包括扣除生命值，回收卡牌等等
+    function battleEventListener():void
+
+}
